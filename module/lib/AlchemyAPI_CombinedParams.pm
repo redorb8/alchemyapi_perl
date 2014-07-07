@@ -28,7 +28,6 @@ sub new() {
     my $class = shift;
 
     my $self = {
-        _extractMode => undef,
         _extract => undef,
         _outputMode => AlchemyAPI_BaseParams::OUTPUT_MODE_XML,
         #_jsonp => undef,
@@ -214,10 +213,6 @@ sub GetParameterString {
 	my($self) = @_;
 	my $retString = $self->SUPER::GetParameterString();
 
-    if( defined $self->{_extractMode} )
-    {
-        $retString .= "&extractMode=".$self->{_extractMode};
-    }
     if( defined $self->{_extract} )
     {
         $retString .= "&extract=".$self->{_extract};
