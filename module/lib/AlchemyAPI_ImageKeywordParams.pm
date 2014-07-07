@@ -27,7 +27,6 @@ sub new() {
     my $class = shift;
 
     my $self = {
-        _extractMode => undef,
         _outputMode => AlchemyAPI_BaseParams::OUTPUT_MODE_XML,
         _image => undef,
         _imagePostMode => undef,
@@ -37,27 +36,6 @@ sub new() {
     bless $self, $class;
 
     return $self;
-}
-
-sub SetExtractMode {
-    my($self, $extractMode) = @_;
-
-    if ( "only-metadata" eq $extractMode || 
-         "trust-metadata" eq $extractMode || 
-         "always-infer"   eq $extractMode )
-    {
-        $self->{_extractMode} = $extractMode;
-    }
-    else
-    {
-        throw Error::Simple("Error: Cannot set extractMode to ".$extractMode);
-    }
-}
-
-sub GetExtractMode
-{
-    my($self) = @_;
-    return $self->{_extractMode};
 }
 
 sub SetImagePostMode {
@@ -96,10 +74,6 @@ sub GetParameterString {
 	my($self) = @_;
 	my $retString = $self->SUPER::GetParameterString();
 
-    if( defined $self->{_extractMode} )
-    {
-        $retString .= "&extractMode=".$self->{_extractMode};
-    }
     if( defined $self->{_image} )
     {
         $retString .= "&image=".$self->{_image};

@@ -30,17 +30,6 @@ printf $result;
 
 # Let's try giving the URL call an HTML page, as it should
 # extract the most relevant image before providing relevant keywords
-$imageParams->SetExtractMode("trust-metadata");
-$result = $alchemyObj->URLGetRankedImageKeywords("http://www.cnn.com/", $imageParams);
-printf $result;
-
-# Change the extractMode parameter
-$imageParams->SetExtractMode("always-infer");
-$result = $alchemyObj->URLGetRankedImageKeywords("http://www.cnn.com/", $imageParams);
-printf $result;
-
-# Change the extractMode parameter
-$imageParams->SetExtractMode("only-metadata");
 $result = $alchemyObj->URLGetRankedImageKeywords("http://www.cnn.com/", $imageParams);
 printf $result;
 

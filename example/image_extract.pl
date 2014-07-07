@@ -24,13 +24,7 @@ my $result = '';
 
 my $imageParams = new AlchemyAPI_ImageParams();
 
-# Get the image from a URL, using the more CPU intensive (and more accurate) approach
-$imageParams->SetExtractMode("always-infer");
-$result = $alchemyObj->URLGetImage("http://www.umich.edu/", $imageParams);
-printf $result;
-
-# Get the image from a URL, using the less CPU intensive (and less accurate) approach
-$imageParams->SetExtractMode("trust-metadata");
+# Get the image from a URL
 $result = $alchemyObj->URLGetImage("http://www.umich.edu/", $imageParams);
 printf $result;
 
