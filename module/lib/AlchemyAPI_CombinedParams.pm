@@ -47,26 +47,6 @@ sub new() {
     return $self;
 }
 
-sub SetExtractMode {
-    my($self, $extractMode) = @_;
-
-    if ( "trust-metadata" eq $extractMode || 
-         "always-infer"   eq $extractMode )
-    {
-        $self->{_extractMode} = $extractMode;
-    }
-    else
-    {
-        throw Error::Simple("Error: Cannot set extractMode to ".$extractMode);
-    }
-}
-
-sub GetExtractMode
-{
-    my($self) = @_;
-    return $self->{_extractMode};
-}
-
 sub SetExtract
 {
     my($self, $extract) = @_;
